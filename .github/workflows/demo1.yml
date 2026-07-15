@@ -3,6 +3,15 @@ on:
   pull_request:
     types: 
       - opened
+  push:
+    branches:
+      - main   # main 
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/'
+    paths-ignore: #Will Not Trigger the workflow if only these files are changed else it will trigger the workflow for all the pa
+      - 'docs/**'
+      - 'README.md'  
+      - '.github/workflows/*' 
 jobs:
   deploy:
     runs-on: ubuntu-latest
