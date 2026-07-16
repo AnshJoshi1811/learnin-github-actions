@@ -9,10 +9,10 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_URI: cluster0.zns3sck.mongodb.net
+      MONGODB_CLUSTER_ADDRESS: cluster0.zns3sck.mongodb.net
       MONGODB_USERNAME: anshsjoshi07_db_user
       MONGODB_PASSWORD: UaZgvzRlxp2qUzWG
-      PORT: 8080
+      PORT: 8080git add .
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
