@@ -1,12 +1,17 @@
-import bodyParser from 'body-parser';
-import express from 'express';
-
-import eventRoutes from './routes/events.js';
-
+const express = require('express');
 const app = express();
 
-app.use(bodyParser.json());
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello! GitHub Actions is working!' });
+});
 
-app.use(eventRoutes);
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK' });
+});
 
-app.listen(process.env.PORT);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+module.exports = app;
