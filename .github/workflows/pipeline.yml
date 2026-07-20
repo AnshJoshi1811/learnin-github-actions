@@ -68,3 +68,19 @@ jobs:
         run: |
           docker build -t ghcr.io/${{ env.REPO_LOWER }}:${{ github.sha }} .
           docker push ghcr.io/${{ env.REPO_LOWER }}:${{ github.sha }}
+# STAGE 4: DEPLOY (push-image ke baad)
+  deploy:
+    needs: push-image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Simulate deployment
+        run: |
+          echo "🚀 Deploying application..."
+          echo "📦 Image: ghcr.io/${{ github.repository }}:${{ github.sha }}"
+          echo "🌍 Environment: production"
+          sleep 3
+          echo "✅ Deployment successful!"
